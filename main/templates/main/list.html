@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Alunos{% endblock %}
+
+{% block content%}
+
+<a id="add-link" href="newaluno/">
+    <div class="col-2 add div">
+        <i class="fas fa-plus"></i>
+    </div>
+</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Aluno</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for aluno in alunos %}
+        <tr>
+            <td><span><a href="aluno/{{ aluno.id }}">{{ aluno.nome }}</a></span></td>
+            <td><a href="editar/{{ aluno.id }}">edite</td>
+            <td><a href="delete/{{ aluno.id }}" class="delete">deletar</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Registrar{% endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="col-md offset-md-4">
+        <div class="card auth-card">
+            <h4 class="card-title text-center">Bem-Vindo</h4>
+            <form method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="next" value="{{next}}">
+
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+            <a class="change-form-p" href="/account/login">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
